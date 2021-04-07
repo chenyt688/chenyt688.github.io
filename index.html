@@ -13,7 +13,6 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="陈勇涛">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -43,7 +42,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/images/avatar.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -101,7 +100,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/images/avatar.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -151,6 +150,79 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Hexo博客美化配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo博客美化配置"><a href="#Hexo博客美化配置" class="headerlink" title="Hexo博客美化配置"></a>Hexo博客美化配置</h1><h2 id="更换主题使用-yilia"><a href="#更换主题使用-yilia" class="headerlink" title="更换主题使用 yilia"></a>更换主题使用 yilia</h2><p>自定义博客主题：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a><br>在站点目录下执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia</span><br></pre></td></tr></table></figure>
+
+
+<p>修改站点目录_config.yml配置 更换主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改头像"><a href="#修改头像" class="headerlink" title="修改头像"></a>修改头像</h2><p>一、编辑主题theme目录下的 _config.yml，新增字段 avatar， 值设置成头像的链接地址。</p>
+<p>a.头像的链接地址：</p>
+<p>①完整的互联网 URL</p>
+<p>②站点内的地址，例如：</p>
+<ul>
+<li><p>/images/avatar.jpg 需要将你的头像图片放置在 站点的 source/images/（新建images目录）</p>
+</li>
+<li><p>/images/avatar.jpg 需要将你的头像图片放置在 主题的 source/images/ 目录下。</p>
+</li>
+</ul>
+<h2 id="添加卡通人物"><a href="#添加卡通人物" class="headerlink" title="添加卡通人物"></a>添加卡通人物</h2><p>①输入命令获取 live2d ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+
+<p>②输入以下命令，下载相应的模型，将 packagename 更换成模型名称即可(<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">查看模型</a>  <a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型样式展览</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install packagename</span><br></pre></td></tr></table></figure>
+
+<p>③配置站点目录下的 _config.yml 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">###卡通人物</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  model: </span><br><span class="line">    #模型选择</span><br><span class="line">    use: live2d-widget-model-epsilon2_1</span><br><span class="line">  display: </span><br><span class="line">    position: right  #模型位置</span><br><span class="line">    width: 250       #模型宽度</span><br><span class="line">    height: 600      #模型高度</span><br><span class="line">  mobile: </span><br><span class="line">    show: false      #是否在手机端显示</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/07/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-搭建hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -339,7 +411,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 陈勇涛
+    		&copy; 2021 Hexo
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -575,5 +647,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"right","width":250,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
