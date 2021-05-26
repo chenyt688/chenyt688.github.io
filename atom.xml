@@ -6,7 +6,7 @@
   <link href="https://chenyt688.github.io/atom.xml" rel="self"/>
   
   <link href="https://chenyt688.github.io/"/>
-  <updated>2021-04-13T09:26:07.363Z</updated>
+  <updated>2021-05-26T01:31:35.340Z</updated>
   <id>https://chenyt688.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql知识杂烩</title>
+    <link href="https://chenyt688.github.io/2020/01/10/mysql%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>https://chenyt688.github.io/2020/01/10/mysql%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
+    <published>2020-01-09T16:00:00.000Z</published>
+    <updated>2021-05-26T01:31:35.340Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Mysql索引类型"><a href="#Mysql索引类型" class="headerlink" title="Mysql索引类型"></a>Mysql索引类型</h3><p>Mysql目前主要有以下几种索引类型：FULLTEXT，HASH，BTREE，RTREE。</p><p>1、FULLTEXT: 即为全文索引，目前只有MyISAM引擎支持。其可以在CREATE TABLE ，ALTER TABLE ，CREATE INDEX 使用，不过目前只有 CHAR、VARCHAR ，TEXT 列上可以创建全文索引。</p><span id="more"></span><p>全文索引并不是和MyISAM一起诞生的，它的出现是为了解决WHERE name LIKE “%word%”这类针对文本的模糊查询效率较低的问题。</p><p>2、 HASH: 由于HASH的唯一（几乎100%的唯一）及类似键值对的形式，很适合作为索引。</p><p>HASH索引可以一次定位，不需要像树形索引那样逐层查找,因此具有极高的效率。但是，这种高效是有条件的，即只在“=”和“in”条件下高效，对于范围查询、排序及组合索引仍然效率不高。</p><p>3、BTREE：BTREE索引就是一种将索引值按一定的算法，存入一个树形的数据结构中（二叉树），每次查询都是从树的入口root开始，依次遍历node，获取leaf。</p><p>MySQL里默认和最常用的索引类型。</p><p>4、RTREE：RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有MyISAM、BDb、InnoDb、NDb、Archive几种。</p><p>相对于BTREE，RTREE的优势在于范围查找。</p><h3 id="事务的-四个特征（ACID）"><a href="#事务的-四个特征（ACID）" class="headerlink" title="事务的 四个特征（ACID）"></a>事务的 四个特征（ACID）</h3><p>事务具有四个特征：原子性（ Atomicity ）、一致性（ Consistency ）、隔离性（ Isolation ）和持续性（ Durability ）。这四个特性简称为 ACID 特性。</p><h3 id="Mysql的四种隔离级别"><a href="#Mysql的四种隔离级别" class="headerlink" title="Mysql的四种隔离级别"></a>Mysql的四种隔离级别</h3><p>SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定事务内外的哪些改变是可见的，哪些是不可见的。低级别的隔离级一般支持更高的并发处理，并拥有更低的系统开销。</p><p>Read Uncommitted（读取未提交内容）</p><p>在该隔离级别，所有事务都可以看到其他未提交事务的执行结果。本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少。读取未提交的数据，也被称之为脏读（Dirty Read）。</p><p>Read Committed（读取提交内容）</p><p>这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。</p><p>Repeatable Read（可重读）</p><p>这是MySQL的默认事务隔离级别，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：幻读 （Phantom Read）。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。</p><p>Serializable（可串行化）</p><p>这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Mysql索引类型&quot;&gt;&lt;a href=&quot;#Mysql索引类型&quot; class=&quot;headerlink&quot; title=&quot;Mysql索引类型&quot;&gt;&lt;/a&gt;Mysql索引类型&lt;/h3&gt;&lt;p&gt;Mysql目前主要有以下几种索引类型：FULLTEXT，HASH，BTREE，RTREE。&lt;/p&gt;
+&lt;p&gt;1、FULLTEXT: 即为全文索引，目前只有MyISAM引擎支持。其可以在CREATE TABLE ，ALTER TABLE ，CREATE INDEX 使用，不过目前只有 CHAR、VARCHAR ，TEXT 列上可以创建全文索引。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="mysql" scheme="https://chenyt688.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客美化</title>
@@ -58,6 +78,52 @@
     
     
     <category term="Hexo" scheme="https://chenyt688.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java知识杂烩</title>
+    <link href="https://chenyt688.github.io/2019/12/13/java%E7%9F%A5%E8%AF%86%E6%9D%82%E7%83%A9/"/>
+    <id>https://chenyt688.github.io/2019/12/13/java%E7%9F%A5%E8%AF%86%E6%9D%82%E7%83%A9/</id>
+    <published>2019-12-12T16:00:00.000Z</published>
+    <updated>2021-05-26T01:31:48.794Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="synchronized修饰static方法与非static方法的区别"><a href="#synchronized修饰static方法与非static方法的区别" class="headerlink" title="synchronized修饰static方法与非static方法的区别"></a>synchronized修饰static方法与非static方法的区别</h3><ol><li><p>当synchronized修饰一个static方法时，多线程下，获取的是类锁（即Class本身，注意：不是实例），作用范围是整个静态方法，作用的对象是这个类的所有对象。</p></li><li><p>当synchronized修饰一个非static方法时，多线程下，获取的是对象锁（即类的实例对象），作用范围是整个方法，作用对象是调用该方法的对象。</p></li></ol><span id="more"></span><h3 id="Integer比较值注意"><a href="#Integer比较值注意" class="headerlink" title="Integer比较值注意"></a>Integer比较值注意</h3><p>传入的int在IntegerCache.low和IntegerCache.high之间，那就尝试看前面的缓存中有没有打过包的相同的值，如果有就直接返回，否则就创建一个Integer实例。</p><p>IntegerCache.low默认是-128；IntegerCache.high默认是127。</p><p>注:如果要比较两个对象的内容是否相同，尽量不使用== 或者!= 来比较，可以使用equal()来实现。</p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;synchronized修饰static方法与非static方法的区别&quot;&gt;&lt;a href=&quot;#synchronized修饰static方法与非static方法的区别&quot; class=&quot;headerlink&quot; title=&quot;synchronized修饰static方法与非static方法的区别&quot;&gt;&lt;/a&gt;synchronized修饰static方法与非static方法的区别&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;当synchronized修饰一个static方法时，多线程下，获取的是类锁（即Class本身，注意：不是实例），作用范围是整个静态方法，作用的对象是这个类的所有对象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;当synchronized修饰一个非static方法时，多线程下，获取的是对象锁（即类的实例对象），作用范围是整个方法，作用对象是调用该方法的对象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="java" scheme="https://chenyt688.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程池</title>
+    <link href="https://chenyt688.github.io/2019/09/10/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>https://chenyt688.github.io/2019/09/10/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</id>
+    <published>2019-09-09T16:00:00.000Z</published>
+    <updated>2021-05-26T01:31:53.922Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Java线程池的四种创建方式"><a href="#Java线程池的四种创建方式" class="headerlink" title="Java线程池的四种创建方式"></a>Java线程池的四种创建方式</h3><p>Java通过Executors（jdk1.5并发包）提供四种线程池，分别为：</p><p>newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</p><p>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</p><p>newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。</p><p>newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Java线程池的四种创建方式&quot;&gt;&lt;a href=&quot;#Java线程池的四种创建方式&quot; class=&quot;headerlink&quot; title=&quot;Java线程池的四种创建方式&quot;&gt;&lt;/a&gt;Java线程池的四种创建方式&lt;/h3&gt;&lt;p&gt;Java通过Executors（jdk1.5</summary>
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://chenyt688.github.io/tags/java/"/>
     
   </entry>
   
